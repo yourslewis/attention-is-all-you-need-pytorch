@@ -36,11 +36,11 @@ If there is any suggestion or error, feel free to fire an issue to let me know. 
 The example below uses the Moses tokenizer (http://www.statmt.org/moses/) to prepare the data and the moses BLEU script for evaluation.
 
 ```bash
-wget https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/tokenizer/tokenizer.perl
-wget https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/share/nonbreaking_prefixes/nonbreaking_prefix.de
-wget https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/share/nonbreaking_prefixes/nonbreaking_prefix.en
+wget -O tokenizer.perl https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/tokenizer/tokenizer.perl
+wget -O nonbreaking_prefix.de https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/share/nonbreaking_prefixes/nonbreaking_prefix.de
+wget -O nonbreaking_prefix.en https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/share/nonbreaking_prefixes/nonbreaking_prefix.en
 sed -i "s/$RealBin\/..\/share\/nonbreaking_prefixes//" tokenizer.perl
-wget https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/generic/multi-bleu.perl
+wget -O multi-bleu.perl https://raw.githubusercontent.com/moses-smt/mosesdecoder/master/scripts/generic/multi-bleu.perl
 ```
 
 ## WMT'16 Multimodal Translation: Multi30k (de-en)
@@ -51,9 +51,15 @@ An example of training for the WMT'16 Multimodal Translation task (http://www.st
 
 ```bash
 mkdir -p data/multi30k
-wget http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/training.tar.gz &&  tar -xf training.tar.gz -C data/multi30k && rm training.tar.gz
-wget http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/validation.tar.gz && tar -xf validation.tar.gz -C data/multi30k && rm validation.tar.gz
-wget http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/mmt16_task1_test.tar.gz && tar -xf mmt16_task1_test.tar.gz -C data/multi30k && rm mmt16_task1_test.tar.gz
+wget -O training.tar.gz http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/training.tar.gz
+tar -xf training.tar.gz -C data/multi30k
+rm training.tar.gz
+wget -O validation.tar.gz http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/validation.tar.gz
+tar -xf validation.tar.gz -C data/multi30k
+rm validation.tar.gz
+wget -O mmt16_task1_test.tar.gz http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/mmt16_task1_test.tar.gz
+tar -xf mmt16_task1_test.tar.gz -C data/multi30k
+rm mmt16_task1_test.tar.gz
 ```
 
 ### 1) Preprocess the data.
