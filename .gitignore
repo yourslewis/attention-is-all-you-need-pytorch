@@ -101,3 +101,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+/data/multi30k
+/data
+/tokenizer.perl
+/nonbreaking_prefix.en
+/nonbreaking_prefix.de
+/multi-bleu.perl
+/transformer/transformer.pyproj
